@@ -17,6 +17,7 @@ public class Eltsin {
     public static void main(String[] args) {
         // TODO code application logic here
         //1231232312
+        // привет)
     }
     
 }
