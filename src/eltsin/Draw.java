@@ -58,7 +58,7 @@ public class Draw extends JFrame {
 
     public void Redrow()
         {
-            Map M=new Map(50,40);
+            Map M=Session.getMap();
             Graphics g = getGraphics();
             
             for (int i=0;i<M.getHeight();i++)
