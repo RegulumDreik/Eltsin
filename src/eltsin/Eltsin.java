@@ -15,7 +15,9 @@ public class Eltsin {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-       
+        Draw d  = new Draw(800,640,16);
+        d.CreateWindow();
+        d.Redrow();
     }
     
 }
