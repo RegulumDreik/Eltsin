@@ -15,8 +15,7 @@ public class Eltsin {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-        //1231232312
+       
     }
     
 }
