@@ -18,6 +18,7 @@ public class Eltsin {
         Draw d  = new Draw(800,640,16);
         d.CreateWindow();
         Map M= new Map(50,40);
+        M.GenerateMapCell();
         Session.setMap(M);
         d.Redrow();
     }

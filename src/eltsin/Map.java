@@ -44,4 +44,11 @@ public class Map {
     {
         return layer1[posW][posH];
     }
+    public void GenerateMapCell()
+    {
+        layer1=CellMazeGen.initialiseMap(layer1);
+        for (int i=0;i<8;i++)
+            layer1=CellMazeGen.doSimulationStep(layer1);
+        layer1=CellMazeGen.finalstep(layer1);
+    }
 }
