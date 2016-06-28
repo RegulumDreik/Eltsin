@@ -37,7 +37,8 @@ public class Draw extends JFrame {
    
     @Override
     public void paint(Graphics g){
-        Redrow();
+        super.paint(g);
+        Redrow(); 
     }
    
     
@@ -61,7 +62,7 @@ public class Draw extends JFrame {
             Map M=Session.getMap();
             Graphics g = getGraphics();
             
-            for (int i=0;i<M.getHeight();i++)
+            for (int i=0;i<M.getHeight();i++)               
             {
                 for (int j=0;j<M.getWidth();j++)
                 {
