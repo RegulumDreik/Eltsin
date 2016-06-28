@@ -51,4 +51,12 @@ public class Map {
             layer1=CellMazeGen.doSimulationStep(layer1);
         layer1=CellMazeGen.finalstep(layer1);
     }
+    public void addTile(int X,int Y)
+    {
+        layer1[X][Y]=1;
+    }
+    public void delTile(int X,int Y)
+    {
+        layer1[X][Y]=0;
+    }
 }

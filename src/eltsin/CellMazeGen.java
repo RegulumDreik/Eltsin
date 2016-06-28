@@ -77,7 +77,7 @@ public static byte[][] doSimulationStep(byte[][] oldMap){
 public static byte [][] finalstep(byte [][] oldMap)
 {
     byte[][] newMap = new byte[oldMap.length][oldMap[0].length];
-    //Loop over each row and column of the map
+    
     for(int x=0; x<oldMap.length; x++){
         for(int y=0; y<oldMap[0].length; y++){
             if(oldMap[x][y]==1&(x>0&x<oldMap.length-1)&(y>0&y<oldMap[0].length-1)){

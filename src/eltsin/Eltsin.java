@@ -20,7 +20,21 @@ public class Eltsin {
         Map M= new Map(50,40);
         M.GenerateMapCell();
         Session.setMap(M);
-        d.Redrow();
+        int c =1;
+        while (true)
+        {
+            if (c==1)
+            {
+                c++;
+                M.addTile(25,25);
+            }
+            else
+            {
+                c--;
+                M.delTile(25, 25);
+            }
+            d.Redrow();
+        }
     }
     
 }
