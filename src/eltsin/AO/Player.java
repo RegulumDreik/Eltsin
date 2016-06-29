@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package eltsin.AO;
-
+import eltsin.Session;
 import eltsin.AO.ActionObject;
 
 /**
@@ -16,5 +16,25 @@ public class Player  extends ActionObject{
     {
         super.posH=x;
         super.posW=y;
+    }
+    public void update(){
+        switch(Session.getKey()){
+            case 37:{
+                
+                break;
+            }case 38:{
+                
+                break;
+            }
+            case 39:{
+                
+                break;
+            }
+            case 40:{
+                
+                break;
+            }
+            default: break;
+        }        
     }
 }

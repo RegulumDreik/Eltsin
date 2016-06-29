@@ -13,7 +13,7 @@ public class ActionObject {
     
     protected int posH; 
     protected int posW;
-    private Session Game;
+    protected Session Game;
     ActionObject()
     {
         Game=Session.getInstance();
