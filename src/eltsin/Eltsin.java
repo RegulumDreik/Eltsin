@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package eltsin;
-
+import eltsin.AO.*;
 /**
  *
  * @author Dmitriy Kapustinskiy
@@ -20,7 +20,11 @@ public class Eltsin {
         Map M= new Map(50,40);
         M.GenerateMapCell();
         Session.setMap(M);
+        Player PL=new Player(25,26);
+        d.addAO(PL);
         int c =1;
+        PL=new Player(27,28);
+        d.addAO(PL);
         while (true)
         {
             if (c==1)
