@@ -12,6 +12,7 @@ public class Session {
     
     private static Session _instance = null;
     private static Map map = null;
+    private static int key = -1;
     private Session() {
         
     }
@@ -30,5 +31,13 @@ public class Session {
     {
         return map;
     }
-    
+    public static void setKey(int in){
+        if (_instance == null)
+            _instance = new Session();
+        key=in;
+    }
+    public static int getKey()
+    {
+        return key;
+    }
 }

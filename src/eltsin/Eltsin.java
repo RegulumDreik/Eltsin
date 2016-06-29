@@ -25,6 +25,7 @@ public class Eltsin {
         int c =1;
         PL=new Player(27,28);
         d.addAO(PL);
+        
         while (true)
         {
             if (c==1)

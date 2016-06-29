@@ -9,6 +9,8 @@ import eltsin.AO.*;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.Iterator;
 import javax.swing.JFrame;
@@ -37,13 +39,22 @@ public class Draw extends JFrame {
       
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setFocusable(true);
+        this.addKeyListener(new KeyAdapter(){
+            public void keyReleased() {
+                Session.setKey(-1);
+            }
+            @Override
+            public void keyPressed(KeyEvent e) {
+                Session.setKey(e.getKeyCode());
+            }
+        });
         
     }
    
     @Override
     public void paint(Graphics g){
         super.paint(g);
-        Redrow(); 
+        Redrow();
     }
    
     
