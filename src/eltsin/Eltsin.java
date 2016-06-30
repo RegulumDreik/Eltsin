@@ -21,16 +21,7 @@ public class Eltsin {
         W.createFrame();
         Draw d=new Draw(16);
         W.add(d);
-        Map M= new Map(50,40);
-        M.GenerateMapCell();
-        Session.setMap(M);
-        Player PL=AOFactory.getplayer();
-        Session.addAO(PL);
-        Session.setPL(PL);
-        for (int i=0;i<4;i++){
-        Seeker SK= AOFactory.getSeeker();
-        Session.addAO(SK);
-        }
+        initaliase(4);
         while (true)
         {
             Iterator<ActionObject> It = Session.ListOfAO.iterator();
@@ -43,7 +34,8 @@ public class Eltsin {
             if (Session.getPL().death){
                 int select = JOptionPane.showConfirmDialog(null, "You Lose", "Try again?", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
                 if (select == JOptionPane.YES_OPTION){
-                    
+                    Session.clear();
+                    initaliase(4);
                 }
                 else{
                     System.exit(0);
@@ -51,5 +43,15 @@ public class Eltsin {
             }
         }
     }
-    
+    private static void initaliase(int colEnemy)
+    {
+        Session.setMap(new Map(50,40));
+        Session.getMap().GenerateMapCell();
+        Session.setPL(AOFactory.getplayer());
+        Session.addAO(Session.getPL());
+        for (int i=0;i<colEnemy;i++)
+        {
+            Session.addAO(AOFactory.getSeeker());
+        }
+    }
 }

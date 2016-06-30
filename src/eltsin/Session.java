@@ -48,6 +48,8 @@ public class Session {
     public static void addAO(ActionObject AS){
         if (_instance == null)
             _instance = new Session();
+        if (ListOfAO == null) 
+            ListOfAO= new ArrayList<>();
         Session.ListOfAO.add(AS);
     }
     public static void setPL(Player m){
@@ -57,5 +59,13 @@ public class Session {
     }
     public static Player getPL(){
         return curPL;
+    }
+    public static void clear(){
+        if (_instance == null)
+            _instance = new Session();
+    map = null;
+    key = -1;
+    curPL = null;
+    ListOfAO = null;
     }
 }

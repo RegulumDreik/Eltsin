@@ -45,13 +45,15 @@ public class Seeker extends ActionObject {
         
             if (end-start>220&path!=null&!Session.getPL().death)
             {
-                int[] in =path.get(0);
+                if (!path.isEmpty()){
+                int[] in =path.remove(0);
                 if (in[0]==PosPLX&&in[1]==PosPLY)
                     Session.getPL().die();
                 
                 posH=in[0];
                 posW=in[1];
-                path.remove(0);
+                }
+                //path.remove(0);
                 step++;
                 start=System.currentTimeMillis();
             }
