@@ -57,8 +57,8 @@ public class VolnAlg
 
     private void push(Point p, int n)
     {
-        if(fillmap[p.getY()][p.getX()]<=n) return; // Если новый путь не коpоче, то он нам не нужен
-        fillmap[p.getY()][p.getX()]=n; // Иначе запоминаем новую длину пути
+        if(fillmap[p.getX()][p.getY()]<=n) return; // Если новый путь не коpоче, то он нам не нужен
+        fillmap[p.getX()][p.getY()]=n; // Иначе запоминаем новую длину пути
         buf.add(p); // Запоминаем точку
     }
 
@@ -85,15 +85,15 @@ public class VolnAlg
                 l=n;  // если добрались до цели
             }
             // n=длина пути до любой соседней клетки
-            n=fillmap[p.getY()][p.getX()]+1;
+            n=fillmap[p.getX()][p.getY()]+1;
 
             //Пеpебоp 4-х соседних клеток
-            if((p.getY()+1<labyrinth.length)&&labyrinth[p.getY()+1][p.getX()]!=1) push(new Point(p.getX(), p.getY()+1), n);
-            if((p.getY()-1>=0)&&(labyrinth[p.getY()-1][p.getX()]!=1)) push(new Point(p.getX(), p.getY()-1), n);
-            if((p.getX()+1<labyrinth[p.getY()].length)&&(labyrinth[p.getY()][p.getX()+1]!=1)) push(new Point(p.getX()+1, p.getY()), n);
-            if((p.getX()-1>=0)&&(labyrinth[p.getY()][p.getX()-1]!=1)) push(new Point(p.getX()-1, p.getY()), n);
+            if((p.getX()+1<labyrinth.length)&&labyrinth[p.getX()+1][p.getY()]!=1) push(new Point(p.getX()+1, p.getY()), n);
+            if((p.getX()-1>=0)&&(labyrinth[p.getX()-1][p.getY()]!=1)) push(new Point(p.getX()-1, p.getY()), n);
+            if((p.getY()+1<labyrinth[p.getX()].length)&&(labyrinth[p.getX()][p.getY()+1]!=1)) push(new Point(p.getX(), p.getY()+1), n);
+            if((p.getY()-1>=0)&&(labyrinth[p.getX()][p.getY()-1]!=1)) push(new Point(p.getX(), p.getY()-1), n);
         }
-        if(fillmap[end.getY()][end.getX()]==Integer.MAX_VALUE)
+        if(fillmap[end.getX()][end.getY()]==Integer.MAX_VALUE)
             return null;
         /*if(fillmap[end.getY()][end.getX()]==Integer.MAX_VALUE){
                 System.err.println("Пути не существует !!!");
@@ -109,12 +109,12 @@ public class VolnAlg
         while((x!=start.getX())||(y!=start.getY())) // Пока не пpидем в начало пути
         {
             // Здесь ищется соседняя
-            if(fillmap[y+1][x]<n){tx=x; ty=y+1; t=fillmap[y+1][x];}
+            if(fillmap[x+1][y]<n){tx=x+1; ty=y; t=fillmap[x+1][y];}
             // клетка, содеpжащая
-            if(fillmap[y-1][x]<n){tx=x; ty=y-1; t=fillmap[y-1][x];}
+            if(fillmap[x-1][y]<n){tx=x-1; ty=y; t=fillmap[x-1][y];}
             // минимальное значение
-            if(fillmap[y][x+1]<n){tx=x+1; ty=y; t=fillmap[y][x+1];}
-            if(fillmap[y][x-1]<n){tx=x-1; ty=y; t=fillmap[y][x-1];}
+            if(fillmap[x][y+1]<n){tx=x; ty=y+1; t=fillmap[x][y+1];}
+            if(fillmap[x][y-1]<n){tx=x; ty=y-1; t=fillmap[x][y-1];}
             x = tx;
             y = ty;
             n = t; // Пеpеходим в найденую клетку
