@@ -5,6 +5,7 @@
  */
 package eltsin;
 import eltsin.AO.ActionObject;
+import eltsin.AO.Player;
 import java.util.ArrayList;
 /**
  *
@@ -15,6 +16,7 @@ public class Session {
     private static Session _instance = null;
     private static Map map = null;
     private static int key = -1;
+    private static Player curPL = null;
     public static ArrayList<ActionObject> ListOfAO = null;
     private Session() {
         ListOfAO= new ArrayList<>();
@@ -47,5 +49,13 @@ public class Session {
         if (_instance == null)
             _instance = new Session();
         Session.ListOfAO.add(AS);
+    }
+    public static void setPL(Player m){
+        if (_instance == null)
+            _instance = new Session();
+        curPL=m;
+    }
+    public static Player getPL(){
+        return curPL;
     }
 }

@@ -24,8 +24,8 @@ public class Eltsin {
         M.GenerateMapCell();
         Session.setMap(M);
         Player PL=AOFactory.getplayer();
-            
         Session.addAO(PL);
+        Session.setPL(PL);
         for (int i=0;i<4;i++){
         Seeker SK= AOFactory.getSeeker();
         Session.addAO(SK);

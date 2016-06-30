@@ -13,15 +13,17 @@ import eltsin.AO.ActionObject;
  */
 public class Player  extends ActionObject{
     long start;
+    public boolean death;
     public Player(int x, int y)
     {
         super.posH=x;
         super.posW=y;
         start=System.currentTimeMillis();
+        death=false;
     }
     public void update(){
         long end=System.currentTimeMillis();
-        if (end-start>150)
+        if (end-start>150&&!death)
         {
         switch(Session.getKey()){
             case 37:{
@@ -60,5 +62,9 @@ public class Player  extends ActionObject{
         }
         start=System.currentTimeMillis();
         }        
+    }
+    public void  die()
+    {
+        death=true;
     }
 }

@@ -42,9 +42,12 @@ public class Seeker extends ActionObject {
             step=0;
         }
         
-            if (end-start>220&path!=null)
+            if (end-start>220&path!=null&!Session.getPL().death)
             {
                 int[] in =path.get(0);
+                if (in[0]==PosPLX&&in[1]==PosPLY)
+                    Session.getPL().die();
+                
                 posH=in[0];
                 posW=in[1];
                 path.remove(0);

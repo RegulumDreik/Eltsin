@@ -21,7 +21,7 @@ import javax.swing.JPanel;
  */
 public class Draw extends Canvas {
     
-    private final Color [] cl = {Color.BLACK,Color.GREEN,Color.YELLOW};
+    private final Color [] cl = {Color.BLACK,Color.GREEN,Color.YELLOW,Color.RED};
     private ArrayList<ActionObject> ListOfAO;
     private final int step;
     Draw(int step)
@@ -64,7 +64,10 @@ public class Draw extends Canvas {
            while (It.hasNext())
            {
                ActionObject OL = It.next();
-               M.setTile(OL.getposW(), OL.getposH(), (byte)2);
+               if (OL.getClass()==Player.class){
+                    M.setTile(OL.getposW(), OL.getposH(), (byte)2);
+                }
+               else M.setTile(OL.getposW(), OL.getposH(), (byte)3);
            }
             for (int i=0;i<M.getHeight();i++)               
             {
