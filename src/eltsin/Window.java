@@ -5,26 +5,24 @@
  */
 package eltsin;
 
-import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 
 /**
  *
  * @author Boris Krab
  */
 public class Window  extends JFrame{
-    private final int width = 816;
-    private final int height = 679;
+    private final int width = 800;
+    private final int height = 661;
     private final int step = 16;
 
     public void createFrame(){
        
         this.setVisible(true);
+        this.setResizable(false);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setSize(new Dimension(width,height));
         this.addKeyListener(new KeyAdapter() {

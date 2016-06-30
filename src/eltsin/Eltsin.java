@@ -6,6 +6,7 @@
 package eltsin;
 import eltsin.AO.*;
 import java.util.Iterator;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Dmitriy Kapustinskiy
@@ -39,6 +40,15 @@ public class Eltsin {
                OL.update();
            }
             d.Redrow();
+            if (Session.getPL().death){
+                int select = JOptionPane.showConfirmDialog(null, "You Lose", "Try again?", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+                if (select == JOptionPane.YES_OPTION){
+                    
+                }
+                else{
+                    System.exit(0);
+                }
+            }
         }
     }
     

@@ -28,6 +28,7 @@ public class Seeker extends ActionObject {
         PosPLX=-1;
         step=4;
     }
+    @Override
      public void update(){
         long end=System.currentTimeMillis();
         for (int i=0;i<Session.ListOfAO.size();i++)
