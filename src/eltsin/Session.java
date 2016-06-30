@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package eltsin;
+import eltsin.AO.ActionObject;
+import java.util.ArrayList;
 /**
  *
  * @author Dmitriy Kapustinskiy
@@ -13,8 +15,9 @@ public class Session {
     private static Session _instance = null;
     private static Map map = null;
     private static int key = -1;
+    public static ArrayList<ActionObject> ListOfAO = null;
     private Session() {
-        
+        ListOfAO= new ArrayList<>();
     }
     
     public synchronized static Session getInstance() {
@@ -39,5 +42,10 @@ public class Session {
     public static int getKey()
     {
         return key;
+    }
+    public static void addAO(ActionObject AS){
+        if (_instance == null)
+            _instance = new Session();
+        Session.ListOfAO.add(AS);
     }
 }

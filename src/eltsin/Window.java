@@ -33,10 +33,6 @@ public class Window  extends JFrame{
             public void keyPressed(KeyEvent e) {
                 Session.setKey(e.getKeyCode());
             }
-            @Override
-            public void keyReleased(KeyEvent e) {
-                Session.setKey(-1);
-            }
         });
     }
     public void setCanvas(Draw in)

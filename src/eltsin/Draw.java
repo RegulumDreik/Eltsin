@@ -34,10 +34,7 @@ public class Draw extends Canvas {
             public void keyPressed(KeyEvent e) {
                 Session.setKey(e.getKeyCode());
                 }
-            @Override
-            public void keyReleased(KeyEvent e) {
-                Session.setKey(-1);
-            }     
+                 
         });
     }
     
@@ -58,9 +55,7 @@ public class Draw extends Canvas {
         g.fillRect(rcW, rcH, step, step);
       
     }
-    public void addAO(ActionObject AS){
-        ListOfAO.add(AS);
-    }
+
     public void Redrow()
         {
             Map M=Session.getMap();
@@ -73,7 +68,7 @@ public class Draw extends Canvas {
                     drawSquare(j,i,M.getTile(j, i));
                 }
             }
-           Iterator<ActionObject> It = ListOfAO.iterator();
+           Iterator<ActionObject> It = Session.ListOfAO.iterator();
            while (It.hasNext())
            {
                ActionObject OL = It.next();

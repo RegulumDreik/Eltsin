@@ -23,20 +23,12 @@ public class Eltsin {
         M.GenerateMapCell();
         Session.setMap(M);
         Player PL=new Player(25,26);
-        d.addAO(PL);
-        int c =1;
+        Session.addAO(PL);
+        Seeker SK= new Seeker (2,2);
+        Session.addAO(SK);
         while (true)
         {
-            if (c==1)
-            {
-                c++;
-                M.addTile(25,25);
-            }
-            else
-            {
-                c--;
-                M.delTile(25, 25);
-            }
+            SK.update();
             PL.update();
             d.Redrow();
         }
