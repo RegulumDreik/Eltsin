@@ -6,55 +6,33 @@
 package eltsin;
 
 import eltsin.AO.*;
+import java.awt.Canvas;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Graphics;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.Iterator;
-import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 /**
  *
  * @author Boris Krab
  */
-public class Draw extends JFrame {
-    private int width;
-    private int height;
-    private int step;
+public class Draw extends Canvas {
+    
+    private final Color [] cl =   new Color[3];
     private ArrayList<ActionObject> ListOfAO;
-    Draw(int width, int height, int step)
+    private final int step;
+    Draw(int step)
     {
-        this.width=width;
-        this.height=height;
-        this.step=step;
-        this.ListOfAO=new ArrayList<ActionObject>();
+        this.step = step;
+        this.ListOfAO=new ArrayList<>();
     }
-    public void CreateWindow(){
-        
-        this.setSize(new Dimension(width, height));
-        this.setVisible(true);
-        this.setResizable(false);
-      
-        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        this.setFocusable(true);
-        this.addKeyListener(new KeyAdapter(){
-            public void keyReleased() {
-                Session.setKey(-1);
-            }
-            @Override
-            public void keyPressed(KeyEvent e) {
-                Session.setKey(e.getKeyCode());
-            }
-        });
-        
-    }
-   
+    
     @Override
     public void paint(Graphics g){
-        super.paint(g);
         Redrow();
+//        repaint();
+      
     }
    
     
@@ -63,14 +41,18 @@ public class Draw extends JFrame {
         Graphics g = getGraphics();
         int rcW=posW*step;
         int rcH=posH*step;
-        
-        switch (type){
-            case 0 : { g.setColor(Color.BLACK); g.fillRect(rcW, rcH, step, step); break; } // (координата Х, координата У, Ширина, Длина)
-            case 1 : { g.setColor(Color.GREEN);g.fillRect(rcW, rcH, step, step); break;}
-            case 2 : { g.setColor(Color.YELLOW);g.fillRect(rcW, rcH, step, step); break;}// (координата Х, координата У, Ширина, Длина)
-            default : break ; // не  придумал   чо сюда   написать
-            
-        }
+        cl[0] = Color.BLACK;
+        cl[1] = Color.GREEN;
+        cl[2] = Color.YELLOW;
+        g.setColor(cl[type]);
+        g.fillRect(rcH, rcH, step, step);
+//        switch (type){
+//            case 0 : { g.setColor(Color.BLACK); g.fillRect(rcW, rcH,step, step); break; } // (координата Х, координата У, Ширина, Длина)
+//            case 1 : { g.setColor(Color.GREEN);g.fillRect(rcW, rcH, step,step); break;}
+//            case 2 : { g.setColor(Color.YELLOW);g.fillRect(rcW, rcH, step,step); break;}// (координата Х, координата У, Ширина, Длина)
+//            default : break ; // не  придумал   чо сюда   написать
+//            
+//        }
       
     }
     public void addAO(ActionObject AS){
@@ -94,6 +76,7 @@ public class Draw extends JFrame {
                ActionObject OL = It.next();
                drawSquare(OL.getposW(),OL.getposH(),(byte)2);
            }
+           
         }
     
 }
