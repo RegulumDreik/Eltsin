@@ -62,15 +62,15 @@ public class Map {
     }
     public ArrayList<int[]> pathFinder(int startX, int startY, int finishX, int finishY)
     {   
-        byte[][] seekMas=new byte[width][height];
+        /*byte[][] seekMas=new byte[width][height];
         for (int i=0;i<width;i++)
         {
             for (int k=0;k<height;k++)
             {
                 seekMas[i][k]=layer1[i][k];
             }
-        }
-        VolnAlg seek = new VolnAlg(seekMas);
+        }*/
+        VolnAlg seek = new VolnAlg(layer1);
         VolnAlg.Point[] retPoint = seek.find(new VolnAlg.Point(startX,startY), new VolnAlg.Point(finishX,finishY));
         ArrayList<int[]> retInt = new ArrayList<>();
         for (VolnAlg.Point retPoint1 : retPoint) {
