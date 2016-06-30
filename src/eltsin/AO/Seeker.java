@@ -41,7 +41,8 @@ public class Seeker extends ActionObject {
             path=Session.getMap().pathFinder(posH, posW, PosPLX, PosPLY);
             step=0;
         }
-            if (end-start>220)
+        
+            if (end-start>220&path!=null)
             {
                 int[] in =path.get(0);
                 posH=in[0];

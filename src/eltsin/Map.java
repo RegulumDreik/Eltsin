@@ -43,7 +43,9 @@ public class Map {
     }
     public byte getTile(int posW,int posH)
     {
+        if (posW<width&posW>0&posH<height&posH>0)
         return layer1[posW][posH];
+        else return 1;
     }
     public void GenerateMapCell()
     {
@@ -73,6 +75,7 @@ public class Map {
         VolnAlg seek = new VolnAlg(layer1);
         VolnAlg.Point[] retPoint = seek.find(new VolnAlg.Point(startX,startY), new VolnAlg.Point(finishX,finishY));
         ArrayList<int[]> retInt = new ArrayList<>();
+        if (retPoint==null) return null;
         for (VolnAlg.Point retPoint1 : retPoint) {
             int[] tp= new int[2];
             tp[0] = retPoint1.getX();
@@ -80,5 +83,23 @@ public class Map {
             retInt.add(tp);
         }
         return retInt;
+    }
+    @Override
+    public Map clone()
+            {
+                Map rt=new Map(width,height);
+                for (int i=0;i<width;i++)
+                {
+                    for (int j=0;j<height;j++)
+                    {
+                        rt.layer1[i][j]=this.layer1[i][j];
+                    }
+                }
+                return rt;
+            }
+    void setTile (int x,int y, byte T)
+    {
+        if (x<width&x>0&y<height&y>0)
+        layer1[x][y]=T;
     }
 }

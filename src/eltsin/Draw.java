@@ -58,9 +58,14 @@ public class Draw extends Canvas {
 
     public void Redrow()
         {
-            Map M=Session.getMap();
+            Map M=Session.getMap().clone();
             Graphics g = getGraphics();
-            
+            Iterator<ActionObject> It = Session.ListOfAO.iterator();
+           while (It.hasNext())
+           {
+               ActionObject OL = It.next();
+               M.setTile(OL.getposW(), OL.getposH(), (byte)2);
+           }
             for (int i=0;i<M.getHeight();i++)               
             {
                 for (int j=0;j<M.getWidth();j++)
@@ -68,12 +73,6 @@ public class Draw extends Canvas {
                     drawSquare(j,i,M.getTile(j, i));
                 }
             }
-           Iterator<ActionObject> It = Session.ListOfAO.iterator();
-           while (It.hasNext())
-           {
-               ActionObject OL = It.next();
-               drawSquare(OL.getposW(),OL.getposH(),(byte)2);
-           }
            
         }
     

@@ -9,7 +9,7 @@ import eltsin.Session;
  *
  * @author Boris Krab
  */
-public class ActionObject {
+public abstract class ActionObject {
     
     protected int posH; 
     protected int posW;
@@ -31,6 +31,6 @@ public class ActionObject {
     void setposW(int IN){
         posW=IN;
     }
-
+    public abstract void update();
 
 }
