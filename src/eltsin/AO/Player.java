@@ -25,19 +25,35 @@ public class Player  extends ActionObject{
         {
         switch(Session.getKey()){
             case 37:{
-                if (Session.getMap().getTile(super.posH-1, posW)==0) posH--;
+                if (Session.getMap().getTile(super.posH-1, posW)==0) 
+                {
+                    posH--;
+                    Session.setKey(-1);
+                }
                 break;
             }
             case 38:{
-                if (Session.getMap().getTile(super.posH, super.posW-1)==0) posW--;
+                if (Session.getMap().getTile(super.posH, super.posW-1)==0) 
+                {
+                    posW--;
+                    Session.setKey(-1);
+                }
                 break;
             }
             case 39:{
-                if (Session.getMap().getTile(super.posH+1, super.posW)==0) posH++;
+                if (Session.getMap().getTile(super.posH+1, super.posW)==0) 
+                {
+                    posH++;
+                    Session.setKey(-1);
+                }
                 break;
             }
             case 40:{
-                if (Session.getMap().getTile(super.posH, super.posW+1)==0) posW++;
+                if (Session.getMap().getTile(super.posH, super.posW+1)==0) 
+                {
+                    posW++;
+                    Session.setKey(-1);
+                }
                 break;
             }
             default: break;
