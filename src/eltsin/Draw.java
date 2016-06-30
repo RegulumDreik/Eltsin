@@ -9,6 +9,8 @@ import eltsin.AO.*;
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.Iterator;
 import javax.swing.JPanel;
@@ -19,13 +21,24 @@ import javax.swing.JPanel;
  */
 public class Draw extends Canvas {
     
-    private final Color [] cl =   new Color[3];
+    private final Color [] cl = {Color.BLACK,Color.GREEN,Color.YELLOW};
     private ArrayList<ActionObject> ListOfAO;
     private final int step;
     Draw(int step)
     {
         this.step = step;
         this.ListOfAO=new ArrayList<>();
+        this.addKeyListener(new KeyAdapter() {
+     
+            @Override
+            public void keyPressed(KeyEvent e) {
+                Session.setKey(e.getKeyCode());
+                }
+            @Override
+            public void keyReleased(KeyEvent e) {
+                Session.setKey(-1);
+            }     
+        });
     }
     
     @Override
@@ -41,18 +54,8 @@ public class Draw extends Canvas {
         Graphics g = getGraphics();
         int rcW=posW*step;
         int rcH=posH*step;
-        cl[0] = Color.BLACK;
-        cl[1] = Color.GREEN;
-        cl[2] = Color.YELLOW;
         g.setColor(cl[type]);
-        g.fillRect(rcH, rcH, step, step);
-//        switch (type){
-//            case 0 : { g.setColor(Color.BLACK); g.fillRect(rcW, rcH,step, step); break; } // (координата Х, координата У, Ширина, Длина)
-//            case 1 : { g.setColor(Color.GREEN);g.fillRect(rcW, rcH, step,step); break;}
-//            case 2 : { g.setColor(Color.YELLOW);g.fillRect(rcW, rcH, step,step); break;}// (координата Х, координата У, Ширина, Длина)
-//            default : break ; // не  придумал   чо сюда   написать
-//            
-//        }
+        g.fillRect(rcW, rcH, step, step);
       
     }
     public void addAO(ActionObject AS){

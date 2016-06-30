@@ -8,6 +8,8 @@ package eltsin;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -25,8 +27,21 @@ public class Window  extends JFrame{
         this.setVisible(true);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setSize(new Dimension(width,height));
-        this.add(new Draw(step));
-            
+        this.addKeyListener(new KeyAdapter() {
+     
+            @Override
+            public void keyPressed(KeyEvent e) {
+                Session.setKey(e.getKeyCode());
+            }
+            @Override
+            public void keyReleased(KeyEvent e) {
+                Session.setKey(-1);
+            }
+        });
+    }
+    public void setCanvas(Draw in)
+    {
+        this.add(in);
     }
 
 }

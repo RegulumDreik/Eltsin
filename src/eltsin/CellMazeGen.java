@@ -10,7 +10,7 @@ import java.util.Random;
  * @author Dmitriy Kapustinskiy
  */
 public class CellMazeGen {
-   private static final float chanceToStartAlive = 0.4f;
+   private static final float chanceToStartAlive = 0.28f;
    private static final int deathLimit=6;
    private static final int birthLimit=2;
 public static byte[][] initialiseMap(byte[][] map){
@@ -81,7 +81,10 @@ public static byte [][] finalstep(byte [][] oldMap)
     for(int x=0; x<oldMap.length; x++){
         for(int y=0; y<oldMap[0].length; y++){
             if(oldMap[x][y]==1&(x>0&x<oldMap.length-1)&(y>0&y<oldMap[0].length-1)){
-                if((oldMap[x-1][y-1]==1&oldMap[x-1][y]==0&oldMap[x-1][y+1]==1)|(oldMap[x+1][y-1]==1&oldMap[x+1][y]==0&oldMap[x+1][y+1]==1)|(oldMap[x-1][y+1]==1&oldMap[x][y+1]==0&oldMap[x+1][y+1]==1)|(oldMap[x-1][y-1]==1&oldMap[x][y-1]==0&oldMap[x+1][y-1]==1)){
+                if((oldMap[x-1][y-1]==1&oldMap[x-1][y]==0&oldMap[x-1][y+1]==1)|
+                   (oldMap[x+1][y-1]==1&oldMap[x+1][y]==0&oldMap[x+1][y+1]==1)|
+                   (oldMap[x-1][y+1]==1&oldMap[x][y+1]==0&oldMap[x+1][y+1]==1)|
+                   (oldMap[x-1][y-1]==1&oldMap[x][y-1]==0&oldMap[x+1][y-1]==1)){
                     newMap[x][y] = 0;
                 }
                 else
