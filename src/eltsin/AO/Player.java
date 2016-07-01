@@ -14,13 +14,17 @@ import eltsin.AO.ActionObject;
 public class Player  extends ActionObject{
     long start;
     public boolean death;
+   
     public Player(int x, int y)
     {
         super.posH=x;
         super.posW=y;
+        super.color=2;
         start=System.currentTimeMillis();
         death=false;
+        
     }
+    @Override
     public void update(){
         long end=System.currentTimeMillis();
         if (end-start>150&&!death)

@@ -14,6 +14,7 @@ public abstract class ActionObject {
     protected int posH; 
     protected int posW;
     protected Session Game;
+    public byte color;
     ActionObject()
     {
         Game=Session.getInstance();

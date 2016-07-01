@@ -50,9 +50,27 @@ public class Draw extends Canvas {
         Graphics g = getGraphics();
         int rcW=posW*step;
         int rcH=posH*step;
+        if (type==4)
+        {
+            rcW=rcW+step/3;
+            rcH=rcH+step/3;
+            g.setColor(Color.WHITE);
+            g.fillRect(rcW, rcH, step/3, step/3);
+            g.setColor(Color.BLACK);
+            rcH-=step/3;
+            rcW-=step/3;
+            g.fillRect(rcW, rcH, step, step/3);
+            rcH+=2*step/3;
+            g.fillRect(rcW, rcH, step, step/3+1);
+            rcH-=step/3;
+            g.fillRect(rcW, rcH, step/3, step/3);
+            rcW+=2*step/3;
+            g.fillRect(rcW, rcH, step/3+1, step);
+        }
+        else{
         g.setColor(cl[type]);
         g.fillRect(rcW, rcH, step, step);
-      
+        }
     }
 
     public void Redrow()
@@ -63,10 +81,7 @@ public class Draw extends Canvas {
            while (It.hasNext())
            {
                ActionObject OL = It.next();
-               if (OL.getClass()==Player.class){
-                    M.setTile(OL.getposW(), OL.getposH(), (byte)2);
-                }
-               else M.setTile(OL.getposW(), OL.getposH(), (byte)3);
+               M.setTile(OL.getposW(), OL.getposH(), OL.color);
            }
             for (int i=0;i<M.getHeight();i++)               
             {

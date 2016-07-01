@@ -23,6 +23,7 @@ public class Seeker extends ActionObject {
     {
         super.posH=x;
         super.posW=y;
+        super.color=3;
         start=System.currentTimeMillis();
         PosPLY=-1;
         PosPLX=-1;

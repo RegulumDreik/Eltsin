@@ -18,6 +18,7 @@ public class Session {
     private static int key = -1;
     private static Player curPL = null;
     public static ArrayList<ActionObject> ListOfAO = null;
+    private static int listik=0;
     private Session() {
         ListOfAO= new ArrayList<>();
     }
@@ -67,5 +68,16 @@ public class Session {
     key = -1;
     curPL = null;
     ListOfAO = null;
+    listik=0;
+    }
+    public static void addListik()
+    {
+        listik++;
+    }
+    public static int getListik()
+    {
+        if (_instance == null)
+            _instance = new Session();
+        return listik;
     }
 }

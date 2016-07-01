@@ -25,4 +25,10 @@ public class AOFactory {
         while (Session.getMap().getTile(i=rnd.nextInt(Session.getMap().getHeight()), j=rnd.nextInt(Session.getMap().getWidth()))==1){}
         return new Seeker(i,j);
     }
+    public static Papers getPapers(){
+        Random rnd = new Random();
+        int i,j;
+        while (Session.getMap().getTile(i=rnd.nextInt(Session.getMap().getHeight()), j=rnd.nextInt(Session.getMap().getWidth()))==1){}
+        return new Papers(i,j);
+    }
 }
